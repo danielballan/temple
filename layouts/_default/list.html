@@ -11,7 +11,7 @@
       <ul class="posts">
         {{ $baseurl := .Site.BaseURL }}
         {{ range $name, $page := .Data.Pages }}
-        {{ if eq .Type "posts" }}
+        {{ if and (eq .Type "posts") (not (.Params.Preview)) }}
         <li>
           {{ if .Draft }}
           DRAFT: 
